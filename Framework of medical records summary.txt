@@ -1,6 +1,0 @@
-Prescriptions and other medical records are increasingly being kept electronically by healthcare providers, patients, and other interested parties. 
-Patients' personal information is included in these reports, making them confidential. Because of the importance of data and identity security, it is necessary to save these records in a decentralised format (using IPFS and the Ethereum decentralised application). 
-Many people have ongoing medical care that involves multiple doctors, multiple treatments, and multiple prescriptions and reports. It is important for medical professionals to have access to a patient's medical history in the event of an emergency. 
-However, time limits prevent them from reviewing the patient's medical history and a variety of past reports and prescriptions.
-In this paper, we have seen a blockchain-based framework that uses artificial intelligence to store and process medical records (including handwritten prescriptions, printed prescriptions, and printed reports) in order to generate a single patient medical history report.
-The report is stored safely over a decentralised blockchain network and displays only the most important facts in a succinct style for ease of use and reading.
