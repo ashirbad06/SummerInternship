@@ -7,22 +7,57 @@
     <h1>Back Pain Symptom Assessment</h1>
     <form action="/" method="POST">
         <label for="intensity">Intensity out of 10:</label>
-        <input type="text" id="intensity" name="intensity"><br><br>
+        <select id="intensity" name="intensity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br><br>
 
         <label for="location">Location:</label>
-        <input type="text" id="location" name="location"><br><br>
+        <select id="location" name="location">
+            <option value="upper_back">Upper Back</option>
+            <option value="middle_back">Middle Back</option>
+            <option value="lower_back">Lower Back</option>
+        </select><br><br>
 
         <label for="duration">Duration:</label>
-        <input type="text" id="duration" name="duration"><br><br>
+        <select id="duration" name="duration">
+            <option value="less_than_1_week">Less than 1 week</option>
+            <option value="1_week_to_1_month">1 week to 1 month</option>
+            <option value="1_month_to_3_months">1 month to 3 months</option>
+            <option value="more_than_3_months">More than 3 months</option>
+        </select><br><br>
 
         <label for="aggravating_factors">Aggravating Factors:</label>
-        <input type="text" id="aggravating_factors" name="aggravating_factors"><br><br>
+        <select id="aggravating_factors" name="aggravating_factors">
+            <option value="sitting_too_long">Sitting too long</option>
+            <option value="lifting_heavy_objects">Lifting heavy objects</option>
+            <option value="bending_or_twisting">Bending or twisting</option>
+            <option value="physical_activity">Physical activity</option>
+        </select><br><br>
 
         <label for="alleviating_factors">Alleviating Factors:</label>
-        <input type="text" id="alleviating_factors" name="alleviating_factors"><br><br>
+        <select id="alleviating_factors" name="alleviating_factors">
+            <option value="resting">Resting</option>
+            <option value="applying_heat">Applying heat</option>
+            <option value="applying_cold">Applying cold</option>
+            <option value="taking_pain_medication">Taking pain medication</option>
+        </select><br><br>
 
         <label for="other_symptoms">Other Symptoms:</label>
-        <input type="text" id="other_symptoms" name="other_symptoms"><br><br>
+        <select id="other_symptoms" name="other_symptoms">
+            <option value="none">None</option>
+            <option value="numbness">Numbness</option>
+            <option value="tingling">Tingling</option>
+            <option value="muscle_weakness">Muscle weakness</option>
+        </select><br><br>
 
         <label for="previous_treatment">Previous Treatment:</label>
         <input type="text" id="previous_treatment" name="previous_treatment"><br><br>
@@ -30,7 +65,36 @@
         <label for="additional_info">Additional Information:</label>
         <input type="text" id="additional_info" name="additional_info"><br><br>
 
-        <input type="submit" value="Submit">
+        <button type="submit">Submit</button>
     </form>
+
+    <h2>Chatbot</h2>
+    <div id="chat-container">
+        <div id="chat-output"></div>
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#send-button').click(function() {
+                var userInput = $('#user-input').val();
+                $('#chat-output').append('<p><strong>You:</strong> ' + userInput + '</p>');
+                $('#user-input').val('');
+
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    data: { user_input: userInput },
+                    success: function(response) {
+                        $('#chat-output').append('<p><strong>Bot:</strong> ' + response + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
