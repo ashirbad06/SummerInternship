@@ -1,0 +1,3 @@
+In this course I learnt about the most commonly used language,python. In the initial couple of hours we got to know about how to install python in our PC,basic flow of a python program,commands,loops,statements,arrays,strings,tuples etc. in python.
+At the later stages we learnt about dictionaries,return statements error handling,inheritance,module,constructor,packages in python.At the later stages we learnt about three projects using python
+Overall Python is one of the simplest and most commonly used language for a variety of purposes which includes machine learning,AI, developement of softwares etc.
